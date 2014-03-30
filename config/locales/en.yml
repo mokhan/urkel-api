@@ -21,3 +21,4 @@
 
 en:
   hello: "Hello world"
+  invalid_credentials: "Ooops... that's not right!"
