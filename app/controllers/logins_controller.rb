@@ -4,7 +4,7 @@ class LoginsController < ApplicationController
   end
 
   def create
-    if User.find_by(email: params[:email]).authenticate(params[:password])
+    if LoginCommand.new.run(params)
       redirect_to dashboard_path
     else
       flash[:error] = I18n.translate(:invalid_credentials)
