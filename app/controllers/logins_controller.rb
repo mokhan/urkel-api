@@ -2,7 +2,6 @@ class LoginsController < ApplicationController
   before_filter :load_dependencies
 
   def new
-    render nothing: true
   end
 
   def create

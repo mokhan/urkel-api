@@ -1,6 +1,7 @@
 Mocode::Application.routes.draw do
   resources :logins, only: [:new, :create]
   get 'dashboard', to: 'dashboard#index'
+  root 'logins#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
