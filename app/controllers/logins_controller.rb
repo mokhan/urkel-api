@@ -1,14 +1,22 @@
 class LoginsController < ApplicationController
+  before_filter :load_dependencies
+
   def new
     render nothing: true
   end
 
   def create
-    if LoginCommand.new.run(params)
+    if @login_command.run(params)
       redirect_to dashboard_path
     else
       flash[:error] = I18n.translate(:invalid_credentials)
       render :new
     end
+  end
+
+  private
+
+  def load_dependencies(login_command = resolve(:login_command))
+    @login_command = login_command
   end
 end
