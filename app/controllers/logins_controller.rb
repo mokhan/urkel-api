@@ -1,5 +1,6 @@
 class LoginsController < ApplicationController
   before_filter :load_dependencies
+  layout 'public'
 
   def new
   end
