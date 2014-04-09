@@ -3,9 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
@@ -36,6 +33,7 @@ end
 gem 'bcrypt', '~> 3.1.7'
 gem 'spank'
 gem 'bootstrap-sass'
+gem 'pg'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -47,4 +45,5 @@ gem 'bootstrap-sass'
 # gem 'debugger', group: [:development, :test]
 group :development, :test do
   gem 'rspec-rails'
+  gem 'debugger'
 end
