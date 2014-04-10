@@ -8,7 +8,7 @@ class LoginsController < ApplicationController
 
   def create
     if @session = @login_command.run(self)
-      session[:session_id] = @session.id
+      session[:user_session_id] = @session.id
       redirect_to dashboard_path
     else
       flash[:error] = I18n.translate(:invalid_credentials)

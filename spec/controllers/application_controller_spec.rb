@@ -12,7 +12,7 @@ describe ApplicationController do
     let(:user) { User.create!(password: 'password', password_confirmation: 'password') }
     let(:user_session) { Session.create!(user: user) }
 
-    before { get :index, {}, session_id: user_session.id }
+    before { get :index, {}, user_session_id: user_session.id }
 
     it "lets you continue to do whatever the heck you were trying to do" do
       response.status.should == 200
@@ -32,7 +32,7 @@ describe ApplicationController do
     it "boots you out when the session id is not known" do
       Session.stub(:find).with(100).and_raise(ActiveRecord::RecordNotFound)
 
-      get :index, {}, session_id: 100
+      get :index, {}, user_session_id: 100
       response.should redirect_to(new_login_path)
     end
   end

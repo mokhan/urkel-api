@@ -43,9 +43,9 @@ describe LoginsController do
       end
 
       it "creates a new session" do
-        session[:session_id].should_not be_nil
+        session[:user_session_id].should_not be_nil
         last_session = Session.last
-        session[:session_id].should == last_session.id
+        session[:user_session_id].should == last_session.id
         last_session.ip_address.should == "0.0.0.0"
       end
     end
