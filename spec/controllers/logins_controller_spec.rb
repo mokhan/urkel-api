@@ -13,12 +13,21 @@ describe LoginsController do
 
     before :each do
       User.stub(:find_by).with(email: 'email@example.com').and_return(user)
+      User.stub(:find_by).with(email: 'unknown@example.com').and_return(nil)
       user.stub(:authenticate).with('password').and_return(true)
     end
 
     context "when the email and password is incorrect" do
       it "displays an error" do
         post :create, email: 'email@example.com', password: 'wrong'
+        flash[:error].should == I18n.translate(:invalid_credentials)
+        response.should render_template(:new)
+      end
+    end
+
+    context "when the email is not known" do
+      it "displays an error" do
+        post :create, email: 'unknown@example.com'
         flash[:error].should == I18n.translate(:invalid_credentials)
         response.should render_template(:new)
       end
