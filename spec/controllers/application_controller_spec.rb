@@ -26,14 +26,14 @@ describe ApplicationController do
   context "when not signed in" do
     it "boots you out when their is no session_id" do
       get :index
-      response.status.should == 401
+      response.should redirect_to(new_login_path)
     end
 
     it "boots you out when the session id is not known" do
       Session.stub(:find).with(100).and_raise(ActiveRecord::RecordNotFound)
 
       get :index, {}, session_id: 100
-      response.status.should == 401
+      response.should redirect_to(new_login_path)
     end
   end
 end

@@ -16,9 +16,9 @@ class ApplicationController < ActionController::Base
 
   def ensure_valid_session
     unless session[:session_id] && @current_session = Session.find(session[:session_id])
-      render nothing: true, status: :unauthorized
+      redirect_to new_login_path
     end
   rescue ActiveRecord::RecordNotFound
-    render nothing: true, status: :unauthorized
+    redirect_to new_login_path
   end
 end
