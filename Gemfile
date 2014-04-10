@@ -34,6 +34,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'spank'
 gem 'bootstrap-sass'
 gem 'pg'
+gem 'ember-rails'
+gem 'ember-source'
 
 # Use unicorn as the app server
 # gem 'unicorn'
