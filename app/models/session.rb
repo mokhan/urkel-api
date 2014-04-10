@@ -1,2 +1,2 @@
-class Session
+class Session < ActiveRecord::Base
 end

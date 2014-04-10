@@ -9,7 +9,7 @@ describe LoginsController do
   end
 
   describe "#create" do
-    let(:user) { double(authenticate: false) }
+    let(:user) { double(id: 1, authenticate: false) }
 
     before :each do
       User.stub(:find_by).with(email: 'email@example.com').and_return(user)
@@ -25,9 +25,19 @@ describe LoginsController do
     end
 
     context "when the email and password is correct" do
-      it "redirects to the dashboard" do
+      before :each do
         post :create, email: 'email@example.com', password: 'password'
+      end
+
+      it "redirects to the dashboard" do
         response.should redirect_to(dashboard_path)
+      end
+
+      it "creates a new session" do
+        session[:session_id].should_not be_nil
+        last_session = Session.last
+        session[:session_id].should == last_session.id
+        last_session.ip_address.should == "0.0.0.0"
       end
     end
   end
