@@ -3,17 +3,23 @@ require "spec_helper"
 describe ApplicationController do
   controller do
     def index
+      current_user
       render text: 'hello'
     end
   end
 
   context "when signed in" do
-    let(:user_session) { Object.new }
+    let(:user) { User.create!(password: 'password', password_confirmation: 'password') }
+    let(:user_session) { Session.create!(user: user) }
+
+    before { get :index, {}, session_id: user_session.id }
 
     it "lets you continue to do whatever the heck you were trying to do" do
-      Session.stub(:find).with(1).and_return(user_session)
-      get :index, {}, session_id: 1
       response.status.should == 200
+    end
+
+    it "loads the current user" do
+      assigns(:current_user).should == user
     end
   end
 

@@ -8,10 +8,14 @@ class ApplicationController < ActionController::Base
     Spank::IOC.resolve(key)
   end
 
+  def current_user
+    @current_user ||= @current_session.user
+  end
+
   private
 
   def ensure_valid_session
-    unless session[:session_id] && Session.find(session[:session_id])
+    unless session[:session_id] && @current_session = Session.find(session[:session_id])
       render nothing: true, status: :unauthorized
     end
   rescue ActiveRecord::RecordNotFound
