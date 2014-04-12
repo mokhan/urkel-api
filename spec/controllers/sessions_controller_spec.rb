@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe LoginsController do
+describe SessionsController do
   describe "#new" do
     it "loads the login page" do
       get :new

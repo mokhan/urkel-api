@@ -16,9 +16,9 @@ class ApplicationController < ActionController::Base
 
   def ensure_valid_session
     unless session[:user_session_id] && @current_session = Session.find(session[:user_session_id])
-      redirect_to new_login_path
+      redirect_to new_session_path
     end
   rescue ActiveRecord::RecordNotFound
-    redirect_to new_login_path
+    redirect_to new_session_path
   end
 end

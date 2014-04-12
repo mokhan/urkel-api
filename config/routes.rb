@@ -1,5 +1,5 @@
 Mocode::Application.routes.draw do
-  resources :logins, only: [:new, :create]
+  resources :sessions, only: [:new, :create]
   resources :videos, only: [:index]
   get 'dashboard', to: 'dashboard#index'
   root 'dashboard#index'

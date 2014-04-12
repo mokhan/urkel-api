@@ -1,4 +1,4 @@
-class LoginsController < ApplicationController
+class SessionsController < ApplicationController
   before_filter :load_dependencies
   skip_before_filter :ensure_valid_session, only: [:new, :create]
   layout 'public'

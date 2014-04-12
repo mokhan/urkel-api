@@ -1,11 +1,11 @@
 require "spec_helper"
 
-describe '/logins' do
-  it "routes to logins#new" do
-    expect(get: 'logins/new').to route_to(controller: 'logins', action: 'new')
+describe '/sessions' do
+  it "routes to sessions#new" do
+    expect(get: 'sessions/new').to route_to(controller: 'sessions', action: 'new')
   end
 
-  it "routes to logins#create" do
-    expect(post: 'logins').to route_to(controller: 'logins', action: 'create')
+  it "routes to sessions#create" do
+    expect(post: 'sessions').to route_to(controller: 'sessions', action: 'create')
   end
 end
