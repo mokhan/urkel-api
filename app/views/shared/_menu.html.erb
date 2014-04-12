@@ -15,6 +15,7 @@
         <li><%= link_to "Settings", root_path(anchor: '/settings') %></li>
         <li><%= link_to "Profile", root_path(anchor: '/profile') %></li>
         <li><%= link_to "Help", root_path(anchor: '/help') %></li>
+        <li><%= link_to "Logout", session_path('mine'), method: :delete %></li>
       </ul>
     </div>
   </div>

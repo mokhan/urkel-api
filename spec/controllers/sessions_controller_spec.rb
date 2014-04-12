@@ -50,4 +50,14 @@ describe SessionsController do
       end
     end
   end
+
+  context "#destroy" do
+    let(:user_session) { Session.create! }
+
+    it "removes the current session" do
+      delete :destroy, { id: 'mine' }, { user_session_id: user_session.id }
+      session[:user_session_id].should be_nil
+      response.should redirect_to(new_session_path)
+    end
+  end
 end
