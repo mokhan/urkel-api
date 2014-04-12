@@ -1,2 +1,2 @@
-Mocode.Video = DS.Model.extend
+App.Video = DS.Model.extend
   name: DS.attr('string')

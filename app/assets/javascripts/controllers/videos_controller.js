@@ -1,2 +1,2 @@
-Mocode.VideosController = Ember.ArrayController.extend({
+App.VideosController = Ember.ArrayController.extend({
 });
