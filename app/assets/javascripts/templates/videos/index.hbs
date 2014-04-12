@@ -2,6 +2,6 @@
 <ul class="nav nav-pills nav-stacked well">
   {{#each video in controller}}
   {{ log video }}
-  <li> {{#linkTo 'video' video}}{{video.title}}{{/linkTo}} </li>
+  <li> {{#link-to 'video' video}}{{video.title}}{{/link-to}} </li>
   {{/each}}
 </ul>
