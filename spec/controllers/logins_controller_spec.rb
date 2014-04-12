@@ -39,7 +39,7 @@ describe LoginsController do
       end
 
       it "redirects to the dashboard" do
-        response.should redirect_to(dashboard_path)
+        response.should redirect_to(root_path(anchor: ''))
       end
 
       it "creates a new session" do
