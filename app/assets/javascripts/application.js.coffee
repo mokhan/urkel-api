@@ -23,4 +23,9 @@
 # for more details see: http://emberjs.com/guides/application/
 window.App = Ember.Application.create()
 
+Ember.Route.reopen
+  activate: ->
+    @_super()
+    document.title = @routeName
+
 #= require_tree .
