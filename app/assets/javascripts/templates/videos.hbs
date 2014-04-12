@@ -1,5 +1,15 @@
-<ul>
-  {{#each controller}}
-  <li>{{title}}</li>
-  {{/each}}
-</ul>
+<div class="row">
+  <div class="col-lg-9">
+    <h2>Videos</h2>
+    <div class="col-lg-3">
+      <ul class="nav nav-pills nav-stacked well">
+        {{#each video in controller}}
+        <li> {{#linkTo 'video' video}}{{video.title}}{{/linkTo}} </li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-lg-6">
+      {{outlet}}
+    </div>
+  </div>
+</div>
