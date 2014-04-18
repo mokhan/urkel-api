@@ -1,2 +1,3 @@
 App.Video = DS.Model.extend
-  name: DS.attr('string')
+  title: DS.attr('string')
+  description: DS.attr('string')
