@@ -13,4 +13,8 @@ class VideosController < ApplicationController
       },
     ]
   end
+
+  def create
+    raise "heck"
+  end
 end
