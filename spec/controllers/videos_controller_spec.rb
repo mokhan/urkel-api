@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'rails_helper'
 
 describe VideosController do
   context "#create" do
@@ -6,7 +6,7 @@ describe VideosController do
     let(:user_session) { Session.create!(user_id: user.id) }
 
     before :each do
-      test_sign_in(user_session)
+      session[:user_session_id] = user_session.id
     end
 
     it "creates a new video" do

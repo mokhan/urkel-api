@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 describe '/sessions' do
   it "routes to sessions#new" do
