@@ -16,4 +16,13 @@ describe ApplicationsController do
       expect(assigns(:applications)).to include(application)
     end
   end
+
+  describe "#create" do
+    it 'creates a new application' do
+      xhr :post, :create, application: { name: 'blah' }
+
+      expect(Application.count).to eql(1)
+      expect(Application.last.name).to eql('blah')
+    end
+  end
 end
