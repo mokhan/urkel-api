@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe VideosController do
   let(:user_session) { create(:session) }
+  let(:user) { user_session.user }
 
   before :each do
     session[:user_session_id] = user_session.id
@@ -35,7 +36,7 @@ describe VideosController do
 
   context "#update" do
     render_views
-    let(:video) { create(:video, user: user_session.user) }
+    let(:video) { create(:video, user: user) }
 
     it 'updates the video' do
       xhr :put, :update, id: video.id, video: { title: 'hello', description: 'blah', uri: 'http://youtu.be/blah' }
@@ -52,6 +53,16 @@ describe VideosController do
       expect(json['video']['title']).to eql('hello')
       expect(json['video']['description']).to eql('blah')
       expect(json['video']['uri']).to eql("http://youtu.be/blah")
+    end
+  end
+
+  context "#destroy" do
+    let(:video) { create(:video, user: user) }
+
+    it 'deletes the video' do
+      xhr :delete, :destroy, id: video.id
+      expect(response).to be_success
+      expect(Video.find_by(id: video.id)).to be_nil
     end
   end
 end

@@ -1,6 +1,7 @@
 {{#unless isEditing}}
   <h3>Video {{title}}</h3>
   {{#link-to 'video.edit' this}}edit{{/link-to}}
+  <a href="#"{{action 'delete'}}>delete</a>
   <p>{{description}}</p>
   <a href="{{uri}}">{{uri}}</a>
 {{/unless}}

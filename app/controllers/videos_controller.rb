@@ -12,6 +12,11 @@ class VideosController < ApplicationController
     @video.update(video_params)
   end
 
+  def destroy
+    current_user.videos.find(params[:id]).destroy!
+    render json: {}
+  end
+
   private
 
   def video_params
