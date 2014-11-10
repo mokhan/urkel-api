@@ -1,0 +1,19 @@
+<h1>New Video</h1>
+
+<form>
+<fieldset>
+  <dl>
+    <dt><label>Title:</label></dt>
+    <dd>{{view Ember.TextField value=fields.title}}</dd>
+  </dl>
+  <dl>
+    <dt><label>URI:</label></dt>
+    <dd>{{view Ember.TextField value=fields.uri}}</dd>
+  </dl>
+  <dl>
+    <dt><label>Description:</label></dt>
+    <dd>{{view Ember.TextArea value=fields.description}}</dl>
+</fieldset>
+</form>
+
+<input type="submit" value="Create" {{action 'createVideo'}} />
