@@ -1,7 +1,10 @@
 <h2>Index</h2>
-{{#link-to 'videos.new'}}new{{/link-to}}
+{{view Ember.TextField value=search placeholder="search" classNames="search"}}
+
+{{#link-to 'videos.new'}}new video{{/link-to}}
+
 <ul class="nav nav-pills nav-stacked well">
-  {{#each video in controller}}
+  {{#each video in videos}}
   <li> {{#link-to 'video' video}}{{video.title}}{{/link-to}} </li>
   {{/each}}
 </ul>
