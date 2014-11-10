@@ -1,4 +1,4 @@
-App.ApplicationsNewRoute = Ember.Route.extend
+App.ServicesNewRoute = Ember.Route.extend
   setupController: (controller) ->
     controller.set('fields', {})
     controller.set('showError', false)

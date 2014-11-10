@@ -1,6 +1,6 @@
-App.Application = DS.Model.extend
+App.Service = DS.Model.extend
   name: DS.attr('string')
 
-App.Application.reopenClass
+App.Service.reopenClass
   valid: (fields) ->
     fields.name

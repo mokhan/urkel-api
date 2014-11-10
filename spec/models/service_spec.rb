@@ -1,4 +1,4 @@
 require 'rails_helper'
 
-describe Application do
+describe Service do
 end
