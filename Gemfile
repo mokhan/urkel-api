@@ -48,4 +48,7 @@ group :development, :test do
   gem 'pry'
   gem 'byebug'
   gem 'spring'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'ffaker'
 end

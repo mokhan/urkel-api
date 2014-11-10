@@ -1,12 +1,15 @@
 class VideosController < ApplicationController
   def index
-    @videos = [
-      OpenStruct.new(id: 1, title: 'getting jiggy with it', description: 'supa fly funky dancing'),
-      OpenStruct.new(id: 2, title: 'getting jiggy with it', description: 'supa fly funky dancing'),
-    ]
+    @videos = Video.all
   end
 
   def create
-    raise "heck"
+    @video = current_user.videos.create!(video_params)
+  end
+
+  private
+
+  def video_params
+    params.require(:video).permit(:title, :description, :uri)
   end
 end
