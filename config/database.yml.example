@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: mocode-development
+  database: erkell-development
   pool: 5
   username: mo
   password:
@@ -9,7 +9,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: mocode-test
+  database: erkell-test
   pool: 5
   username: mo
   password:

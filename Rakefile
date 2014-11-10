@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Mocode::Application.load_tasks
+Erkell::Application.load_tasks
