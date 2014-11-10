@@ -1,12 +1,19 @@
-<h2>Edit</h2>
+<h2><small>Edit</small> {{model.title}}</h2>
 
 <p>
   <label for="">Title</label>
   <br />
-  <input type="text" name="" id="" value="{{model.title}}" />
+  {{view Ember.TextField value=model.title}}
 </p>
 <p>
   {{ view Ember.TextArea value=model.description }}
 </p>
 
 <input type="submit" value="Save" {{action 'saveChanges'}} />
+<a href="#"{{action 'cancel'}}>cancel</a>
+{{#if showUnsavedMessage}}
+  <p class="unsaved">unsaved changes</p>
+{{/if}}
+{{#if isSaving}}
+  <p class="saving">saving...</p>
+{{/if}}

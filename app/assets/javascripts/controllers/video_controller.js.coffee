@@ -1,2 +1,4 @@
-App.VideoController = Ember.ObjectController.extend()
+App.VideoController = Ember.ObjectController.extend(
+  isEditing: false
+)
 
