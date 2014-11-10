@@ -2,8 +2,10 @@
 
 {{#link-to 'services.new'}}new service{{/link-to}}
 
+<ul class="nav nav-pills nav-stacked well">
 {{#each service in controller}}
-  {{service.name}}
+  <li> {{#link-to 'service' service}}{{service.name}}{{/link-to}} </li>
 {{/each}}
+</ul>
 
 {{outlet}}
