@@ -5,4 +5,5 @@ App.Router.map ()->
   @route "profile", { path: "/profile" }
   @route "help", { path: "/help" }
   @resource 'videos', ->
-    @resource 'video', { path: ':video_id' }
+    @resource 'video', { path: ':video_id' }, ->
+      @route 'edit'

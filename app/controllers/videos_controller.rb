@@ -7,6 +7,11 @@ class VideosController < ApplicationController
     @video = current_user.videos.create!(video_params)
   end
 
+  def update
+    @video = current_user.videos.find(params[:id])
+    @video.update(video_params)
+  end
+
   private
 
   def video_params

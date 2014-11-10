@@ -1,6 +1,6 @@
 Mocode::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
-  resources :videos, only: [:index, :create]
+  resources :videos, only: [:index, :create, :update]
   get 'dashboard', to: 'dashboard#index'
   root 'dashboard#index'
   # The priority is based upon order of creation: first created -> highest priority.

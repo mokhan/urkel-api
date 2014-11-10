@@ -32,4 +32,26 @@ describe VideosController do
       expect(json['video']['uri']).to eql("http://youtu.be/jghvdDB-t30?list=PLYuXlc3r66uFJErV5rYpZRcD8oDGtQlQc")
     end
   end
+
+  context "#update" do
+    render_views
+    let(:video) { create(:video, user: user_session.user) }
+
+    it 'updates the video' do
+      xhr :put, :update, id: video.id, video: { title: 'hello', description: 'blah', uri: 'http://youtu.be/blah' }
+      video.reload
+      expect(video.title).to eql('hello')
+      expect(video.description).to eql('blah')
+      expect(video.uri).to eql('http://youtu.be/blah')
+    end
+
+    it 'responds with the proper json' do
+      xhr :put, :update, id: video.id, video: { title: 'hello', description: 'blah', uri: 'http://youtu.be/blah' }
+      json = JSON.parse(response.body)
+      expect(json['video']['id']).to eql(video.id)
+      expect(json['video']['title']).to eql('hello')
+      expect(json['video']['description']).to eql('blah')
+      expect(json['video']['uri']).to eql("http://youtu.be/blah")
+    end
+  end
 end
