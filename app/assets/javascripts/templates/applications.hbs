@@ -1,0 +1,9 @@
+<h1>Applications</h1>
+
+{{#link-to 'applications.new'}}new application{{/link-to}}
+
+{{#each application in controller}}
+  {{application.name}}
+{{/each}}
+
+{{outlet}}

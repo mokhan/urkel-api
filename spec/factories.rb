@@ -15,4 +15,8 @@ FactoryGirl.define do
   factory :session do
     user
   end
+
+  factory :application do
+    name Faker::Company.name
+  end
 end

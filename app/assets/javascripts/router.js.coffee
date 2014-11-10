@@ -8,3 +8,5 @@ App.Router.map ()->
     @route 'new'
     @resource 'video', { path: ':video_id' }, ->
       @route 'edit'
+  @resource 'applications', ->
+    @route 'new'

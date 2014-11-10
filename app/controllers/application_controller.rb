@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   private
 
   def ensure_valid_session
+    #::TODO look up session by unique session key not id.
     unless session[:user_session_id] && @current_session = Session.find(session[:user_session_id])
       redirect_to new_session_path
     end
