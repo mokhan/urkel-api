@@ -1,6 +1,6 @@
-<h1>Videos Index</h1>
+<h2>Index</h2>
 <ul class="nav nav-pills nav-stacked well">
-  {{#each}}
-  <li> {{#link-to 'video' this.id}}{{title}}{{/link-to}} </li>
+  {{#each video in controller}}
+  <li> {{#link-to 'video' video}}{{video.title}}{{/link-to}} </li>
   {{/each}}
 </ul>
