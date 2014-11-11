@@ -1,9 +1,10 @@
 <h1>Services</h1>
 
+{{view Ember.TextField value=search placeholder="search" classNames="search"}}
 {{#link-to 'services.new'}}new service{{/link-to}}
 
 <ul class="nav nav-pills nav-stacked well">
-{{#each service in controller}}
+{{#each service in services}}
   <li> {{#link-to 'service' service}}{{service.name}}{{/link-to}} </li>
 {{/each}}
 </ul>
