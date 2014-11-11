@@ -2,7 +2,7 @@ Erkell::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :videos, only: [:index, :create, :update, :destroy]
   resources :services, only: [:index, :create]
-  resources :environments, only: [:index, :show, :create]
+  resources :environments, only: [:index, :show, :create, :destroy]
 
   get 'dashboard', to: 'dashboard#index'
   root 'dashboard#index'

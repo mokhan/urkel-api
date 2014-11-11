@@ -37,4 +37,13 @@ describe EnvironmentsController do
       expect(Environment.last.name).to eql('development')
     end
   end
+
+  describe "#destroy" do
+    let(:environment) { create(:environment) }
+
+    it 'deletes the environment' do
+      xhr :delete, :destroy, id: environment.id
+      expect(Environment.count).to eql(0)
+    end
+  end
 end

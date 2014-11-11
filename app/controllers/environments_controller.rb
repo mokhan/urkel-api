@@ -12,6 +12,11 @@ class EnvironmentsController < ApplicationController
     @environment = service.environments.create!(environment_params)
   end
 
+  def destroy
+    Environment.find(params[:id]).destroy
+    render json: {}
+  end
+
   private
 
   def environment_params
