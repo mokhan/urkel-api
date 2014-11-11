@@ -26,4 +26,15 @@ describe EnvironmentsController do
       expect(assigns(:environment)).to eql(environment)
     end
   end
+
+  describe "#create" do
+    let(:service) { create(:service) }
+
+    it 'creates a new environment' do
+      xhr :post, :create, environment: { name: 'development', service_id: service.id }
+
+      expect(Environment.count).to eql(1)
+      expect(Environment.last.name).to eql('development')
+    end
+  end
 end

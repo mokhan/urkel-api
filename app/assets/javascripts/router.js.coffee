@@ -12,4 +12,5 @@ App.Router.map ()->
     @route 'new'
     @resource 'service', { path: ':service_id' }, ->
       @route 'environments', ->
+        @route 'new'
         @resource 'environment', { path: ':environment_id' }

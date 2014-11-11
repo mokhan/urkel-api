@@ -5,7 +5,6 @@ class ServicesController < ApplicationController
 
   def create
     Service.create!(application_params)
-    render nothing: true
   end
 
   private

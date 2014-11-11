@@ -4,6 +4,7 @@ class CreateEnvironments < ActiveRecord::Migration
       t.string :name
       t.references :service, index: true
       t.string :api_key
+      t.timestamps
     end
   end
 end

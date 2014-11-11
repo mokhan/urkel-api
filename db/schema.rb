@@ -17,9 +17,11 @@ ActiveRecord::Schema.define(version: 20141110181704) do
   enable_extension "plpgsql"
 
   create_table "environments", force: true do |t|
-    t.string  "name"
-    t.integer "service_id"
-    t.string  "api_key"
+    t.string   "name"
+    t.integer  "service_id"
+    t.string   "api_key"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "environments", ["service_id"], name: "index_environments_on_service_id", using: :btree
@@ -38,8 +40,10 @@ ActiveRecord::Schema.define(version: 20141110181704) do
   end
 
   create_table "users", force: true do |t|
-    t.string "email"
-    t.string "password_digest"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "videos", force: true do |t|
