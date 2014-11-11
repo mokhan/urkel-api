@@ -3,6 +3,6 @@
   {{#link-to 'video.edit' this}}edit{{/link-to}}
   <a href="#"{{action 'delete'}}>delete</a>
   <p>{{description}}</p>
-  <a href="{{uri}}">{{uri}}</a>
+  <a {{bindAttr href="uri"}}>{{uri}}</a>
 {{/unless}}
 {{outlet}}
