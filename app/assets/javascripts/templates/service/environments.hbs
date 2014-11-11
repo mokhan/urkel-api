@@ -2,6 +2,7 @@
 
 <ul>
   {{#each environment in controller}}
-  <li>{{environment.name}}</li>
+  <li>{{#link-to 'environment' environment}}{{environment.name}}{{/link-to}}</li>
   {{/each}}
 </ul>
+{{outlet}}
