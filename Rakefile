@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Erkell::Application.load_tasks
+Urkel::Application.load_tasks
