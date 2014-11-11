@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141110173131) do
+ActiveRecord::Schema.define(version: 20141110181704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "environments", force: true do |t|
+    t.string  "name"
+    t.integer "service_id"
+    t.string  "api_key"
+  end
+
+  add_index "environments", ["service_id"], name: "index_environments_on_service_id", using: :btree
 
   create_table "services", force: true do |t|
     t.string   "name"

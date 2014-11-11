@@ -19,4 +19,8 @@ FactoryGirl.define do
   factory :service do
     name Faker::Company.name
   end
+
+  factory :environment do
+    name Faker::Lorem.word
+  end
 end
