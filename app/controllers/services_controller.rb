@@ -4,7 +4,12 @@ class ServicesController < ApplicationController
   end
 
   def create
-    @service = Service.create!(application_params)
+    @service = Service.create!(service_params)
+  end
+
+  def update
+    @service = Service.find(params[:id])
+    @service.update!(service_params)
   end
 
   def destroy
@@ -14,7 +19,7 @@ class ServicesController < ApplicationController
 
   private
 
-  def application_params
+  def service_params
     params.require(:service).permit(:name)
   end
 end

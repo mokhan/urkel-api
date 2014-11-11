@@ -34,4 +34,14 @@ describe ServicesController do
       expect(Service.count).to eql(0)
     end
   end
+
+  describe "#update" do
+    let(:service) { create(:service) }
+
+    it 'updates the service' do
+      xhr :put, :update, id: service.id, service: { name: 'new name' }
+      service.reload
+      expect(service.name).to eql('new name')
+    end
+  end
 end
