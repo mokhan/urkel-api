@@ -1,10 +1,10 @@
 <h1>Failures</h1>
+
+<ul>
 {{#each failure in controller}}
-<div>
-  <p>{{failure.environment.name}}</p>
-  <p>{{failure.error_type}}</p>
-  <p>{{failure.message}}</p>
-  <p>{{failure.hostname}}</p>
-  <p>{{failure.backtrace}}</p>
-</div>
+<li>{{#link-to 'failure' failure}}{{failure.error_type}}: {{failure.message}}{{/link-to}}</li>
 {{/each}}
+</ul>
+
+{{outlet}}
+

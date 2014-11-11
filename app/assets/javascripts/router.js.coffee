@@ -15,4 +15,5 @@ App.Router.map ()->
       @route 'environments', ->
         @route 'new'
         @resource 'environment', { path: ':environment_id' }
-  @resource 'failures'
+  @resource 'failures', ->
+    @resource 'failure', { path: ':failure_id' }
