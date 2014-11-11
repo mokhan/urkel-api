@@ -6,17 +6,18 @@
 <fieldset>
   <dl>
     <dt><label>Title:</label></dt>
-    <dd>{{view Ember.TextField value=fields.title}}</dd>
+    <dd>{{input value=fields.title}}</dd>
   </dl>
   <dl>
     <dt><label>URI:</label></dt>
-    <dd>{{view Ember.TextField value=fields.uri}}</dd>
+    <dd>{{input value=fields.uri}}</dd>
   </dl>
   <dl>
     <dt><label>Description:</label></dt>
-    <dd>{{view Ember.TextArea value=fields.description}}</dl>
+    <dd>{{input value=fields.description}}</dl>
   </dl>
 </fieldset>
 </form>
 
 <input type="submit" value="Create" {{action 'createVideo'}} />
+{{#link-to 'videos'}}cancel{{/link-to}}

@@ -3,10 +3,10 @@
 <p>
   <label for="">Title</label>
   <br />
-  {{view Ember.TextField value=model.title}}
+  {{input value=model.title}}
 </p>
 <p>
-  {{ view Ember.TextArea value=model.description }}
+  {{textarea value=model.description}}
 </p>
 
 <input type="submit" value="Save" {{action 'saveChanges'}} />
