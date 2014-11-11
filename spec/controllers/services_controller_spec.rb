@@ -25,4 +25,13 @@ describe ServicesController do
       expect(Service.last.name).to eql('blah')
     end
   end
+
+  describe "#destroy" do
+    let(:service) { create(:service) }
+
+    it 'deletes the services' do
+      xhr :delete, :destroy, id: service.id
+      expect(Service.count).to eql(0)
+    end
+  end
 end

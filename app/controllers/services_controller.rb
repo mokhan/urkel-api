@@ -4,7 +4,12 @@ class ServicesController < ApplicationController
   end
 
   def create
-    Service.create!(application_params)
+    @service = Service.create!(application_params)
+  end
+
+  def destroy
+    Service.find(params[:id]).destroy!
+    render json: {}
   end
 
   private

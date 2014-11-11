@@ -5,6 +5,6 @@ App.ServicesNewController = Ember.Controller.extend
       if App.Service.valid(fields)
         service = @store.createRecord('service', @get('fields'))
         service.save().then =>
-          @transitionTo('services', service)
+          @transitionTo('services')
       else
         @set('showError', true)
