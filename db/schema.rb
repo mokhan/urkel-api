@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141110181704) do
+ActiveRecord::Schema.define(version: 20141111043011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 20141110181704) do
   end
 
   add_index "environments", ["service_id"], name: "index_environments_on_service_id", using: :btree
+
+  create_table "failures", force: true do |t|
+    t.integer  "environment_id"
+    t.string   "message"
+    t.string   "hostname"
+    t.string   "error_type"
+    t.text     "backtrace",      default: [], array: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "failures", ["environment_id"], name: "index_failures_on_environment_id", using: :btree
 
   create_table "services", force: true do |t|
     t.string   "name"

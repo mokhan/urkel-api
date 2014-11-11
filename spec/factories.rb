@@ -23,4 +23,11 @@ FactoryGirl.define do
   factory :environment do
     name Faker::Lorem.word
   end
+
+  factory :failure do
+    environment
+    message "heck"
+    hostname "local"
+    type ""
+  end
 end
