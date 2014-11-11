@@ -3,6 +3,7 @@ Erkell::Application.routes.draw do
   resources :videos, only: [:index, :create, :update, :destroy]
   resources :services, only: [:index, :create, :update, :destroy]
   resources :environments, only: [:index, :show, :create, :destroy]
+  resources :failures, only: [:index]
 
   get 'dashboard', to: 'dashboard#index'
 

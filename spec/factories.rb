@@ -21,13 +21,14 @@ FactoryGirl.define do
   end
 
   factory :environment do
+    association :service
     name Faker::Lorem.word
   end
 
   factory :failure do
-    environment
+    association :environment
     message "heck"
     hostname "local"
-    type ""
+    error_type "StandardError"
   end
 end

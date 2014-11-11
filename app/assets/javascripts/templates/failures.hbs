@@ -1,0 +1,10 @@
+<h1>Failures</h1>
+{{#each failure in controller}}
+<div>
+  <p>{{failure.environment.name}}</p>
+  <p>{{failure.error_type}}</p>
+  <p>{{failure.message}}</p>
+  <p>{{failure.hostname}}</p>
+  <p>{{failure.backtrace}}</p>
+</div>
+{{/each}}

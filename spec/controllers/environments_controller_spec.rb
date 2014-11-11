@@ -19,6 +19,8 @@ describe EnvironmentsController do
   end
 
   describe "#show" do
+    render_views
+
     let(:environment) { create(:environment) }
 
     it 'returns info on the environment' do
