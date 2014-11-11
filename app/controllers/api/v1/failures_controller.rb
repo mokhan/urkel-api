@@ -1,6 +1,6 @@
 module Api
   module V1
-    class ErrorsController < ApiController
+    class FailuresController < ApiController
       def create
         failure = current_environment.failures.build(error_params)
         failure.backtrace = params[:error][:backtrace]

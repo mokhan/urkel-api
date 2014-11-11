@@ -2,7 +2,7 @@ require 'rails_helper'
 
 module Api
   module V1
-    describe ErrorsController do
+    describe FailuresController do
       describe "#create" do
         let(:service) { create(:service) }
         let(:environment) { create(:environment, service: service) }
