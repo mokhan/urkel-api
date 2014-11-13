@@ -1,10 +1,17 @@
-<h1>Failures</h1>
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li class="active">{{#link-to 'failures'}}Failures{{/link-to}}</li>
+</ol>
 
-<ul>
+<div class="page-header">
+  <h1>Failures <small>management</small></h1>
+</div>
+
+<div class="list-group">
 {{#each failure in controller}}
-<li>{{#link-to 'failure' failure}}{{failure.error_type}}: {{failure.message}}{{/link-to}}</li>
+  {{#link-to 'failure' failure class="list-group-item"}}{{failure.error_type}}: {{failure.message}} on {{failure.hostname}}{{/link-to}}
 {{/each}}
-</ul>
+</div>
 
 {{outlet}}
 
