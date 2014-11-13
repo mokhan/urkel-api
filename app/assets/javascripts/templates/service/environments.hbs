@@ -1,9 +1,14 @@
-<h1>Environments</h1>
-{{#link-to 'service.environments.new'}}New{{/link-to}}
+<div class="row">
+  <div class="col-md-12">
 
-<ul>
-  {{#each environment in controller}}
-  <li>{{#link-to 'environment' environment}}{{environment.name}}{{/link-to}}</li>
-  {{/each}}
-</ul>
+    <h1>Environments</h1>
+    {{#link-to 'service.environments.new' class="btn btn-default"}}New{{/link-to}}
+
+    <ul class="nav nav-pills">
+      {{#each environment in controller}}
+      <li role="presentation">{{#link-to 'environment' environment class="list-group-item"}}{{environment.name}}{{/link-to}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
 {{outlet}}

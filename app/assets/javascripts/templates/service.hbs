@@ -1,7 +1,11 @@
-<h3>{{name}}</h3>
-{{#link-to 'service.edit' this}}edit{{/link-to}}
-<a href="#" {{action "deleteService"}}>delete</a>
+<div class="row">
+  <div class="col-md-12">
+    <h3>{{name}}</h3>
 
-{{#link-to 'service.environments' this}}environments{{/link-to}}
+    {{#link-to 'service.edit' this class="btn btn-default"}}edit{{/link-to}}
+    <a href="#" {{action "deleteService"}} class="btn btn-danger">delete</a>
 
+    {{#link-to 'service.environments' this}}environments{{/link-to}}
+  </div>
+</div>
 {{outlet}}

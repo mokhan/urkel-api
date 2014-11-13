@@ -1,13 +1,35 @@
-<h1>Services</h1>
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li class="active">{{#link-to 'services'}}Services{{/link-to}}</li>
+</ol>
 
-{{input value=search placeholder="search" classNames="search"}}
+<div class="page-header">
+  <h1>Services <small>management</small></h1>
+</div>
 
-{{#link-to 'services.new'}}new service{{/link-to}}
+<div class="row">
+  <div class="col-md-10">
+    <div class="input-group">
+      {{input value=search placeholder="Search" classNames="form-control"}}
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Search!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-md-6 -->
+  <div class="col-md-2">
+    {{#link-to 'services.new' class="btn btn-default"}}new service{{/link-to}}
+  </div><!-- /.col-md-3 -->
+</div><!-- /.row -->
 
-<ul class="nav nav-pills nav-stacked well">
-{{#each service in services}}
-  <li> {{#link-to 'service' service}}{{service.name}}{{/link-to}} </li>
-{{/each}}
-</ul>
+<br />
+<div class="row">
+  <div class="col-md-12">
+    <ul class="nav nav-pills">
+    {{#each service in services}}
+      <li role="presentation">{{#link-to 'service' service class="list-group-item"}}{{service.name}}{{/link-to}}</li>
+    {{/each}}
+    </ul>
+  </div>
+</div>
 
 {{outlet}}

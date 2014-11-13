@@ -11,4 +11,5 @@
 </fieldset>
 </form>
 
-<input type="submit" value="Create" {{action 'createService'}} />
+<button type="submit" {{action 'createService'}} class="btn btn-primary">Create</button>
+{{#link-to 'services'}}Cancel{{/link-to}}
