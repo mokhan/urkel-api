@@ -4,7 +4,7 @@ before_install:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
 before_script:
-  - cp .sample.env .env
+  - cp .env.example .env
 
   - psql -c 'create database "urkel_test";' -U postgres
 
