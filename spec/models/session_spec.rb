@@ -25,4 +25,13 @@ describe Session do
       end
     end
   end
+
+  context "#revoke!" do
+    subject { create(:user_session) }
+
+    it 'marks the time the session was revoked' do
+      subject.revoke!
+      expect(subject.revoked_at).to_not be_nil
+    end
+  end
 end

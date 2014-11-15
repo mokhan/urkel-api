@@ -12,7 +12,7 @@ FactoryGirl.define do
     password_confirmation "password"
   end
 
-  factory :session do
+  factory :session, aliases: [:user_session] do
     user
   end
 

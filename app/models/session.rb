@@ -14,6 +14,10 @@ class Session < ActiveRecord::Base
     end
   end
 
+  def revoke!
+    update_attribute(:revoked_at, Time.now.utc)
+  end
+
   class << self
     def authenticate!(session_key)
       Session.find(session_key)
