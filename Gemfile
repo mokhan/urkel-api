@@ -36,6 +36,7 @@ gem 'bootstrap-sass'
 gem 'pg'
 gem 'ember-rails', github: 'emberjs/ember-rails'
 gem 'ember-source'
+gem 'dotenv'
 
 # Use unicorn as the app server
 # gem 'unicorn'
