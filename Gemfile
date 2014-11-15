@@ -38,6 +38,7 @@ gem 'ember-rails', github: 'emberjs/ember-rails'
 gem 'ember-source'
 gem 'dotenv'
 gem 'i18n-tasks'
+gem 'rack-ssl-enforcer'
 
 # Use unicorn as the app server
 # gem 'unicorn'
