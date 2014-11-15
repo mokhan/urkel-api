@@ -42,4 +42,15 @@ describe Session do
       expect(subject.revoked_at).to_not be_nil
     end
   end
+
+  context "#access" do
+    subject { create(:user_session) }
+    let(:request) { double(remote_ip: '127.0.0.1') }
+
+    before { subject.access(request) }
+
+    it 'records the ip address' do
+      expect(subject.ip_address).to eql(request.remote_ip)
+    end
+  end
 end

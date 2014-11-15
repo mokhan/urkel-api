@@ -2,6 +2,7 @@ class Session < ActiveRecord::Base
   belongs_to :user
 
   def access(request)
+    self.ip_address = request.remote_ip
     if save
       {
         value: self.id,
