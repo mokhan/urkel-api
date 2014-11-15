@@ -4,4 +4,12 @@ class User < ActiveRecord::Base
   validates :email, email: true
 
   has_secure_password
+
+  def login(password)
+    if authenticate(password)
+      sessions.build
+    else
+      raise 'heck'
+    end
+  end
 end

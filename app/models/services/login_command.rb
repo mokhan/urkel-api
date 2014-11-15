@@ -5,8 +5,10 @@ class LoginCommand
 
   def run(context)
     user = @users.find_by(email: context.params[:email])
-    if user && user.authenticate(context.params[:password])
-      Session.create!(user_id: user.id, ip_address: context.request.remote_ip)
+    if user && (user_session = user.login(context.params[:password]))
+      user_session.access(context.request)
+    else
+      raise "heck"
     end
   end
 end
