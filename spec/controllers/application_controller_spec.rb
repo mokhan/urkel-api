@@ -12,7 +12,8 @@ describe ApplicationController do
     let(:user) { create(:user, password: 'password', password_confirmation: 'password') }
     let(:user_session) { create(:session, user: user) }
 
-    before { get :index, {}, user_session_id: user_session.id }
+    before { cookies.signed[:raphael] = user_session.id }
+    before { get :index }
 
     it "lets you continue to do whatever the heck you were trying to do" do
       expect(response.status).to eql(200)
@@ -24,15 +25,16 @@ describe ApplicationController do
   end
 
   context "when not signed in" do
-    it "boots you out when their is no session_id" do
+    before :each do
+      cookies.signed[:raphael] = rand(100)
       get :index
+    end
+
+    it "boots you out when their is no session_id" do
       expect(response).to redirect_to(new_session_path)
     end
 
     it "boots you out when the session id is not known" do
-      allow(Session).to receive(:find).with(100).and_raise(ActiveRecord::RecordNotFound)
-
-      get :index, {}, user_session_id: 100
       expect(response).to redirect_to(new_session_path)
     end
   end
