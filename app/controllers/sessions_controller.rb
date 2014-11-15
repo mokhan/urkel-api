@@ -1,7 +1,11 @@
 class SessionsController < ApplicationController
-  before_filter :load_dependencies
   skip_before_filter :ensure_valid_session, only: [:new, :create]
   layout 'public'
+
+  def initialize(login_command = resolve(:login_command))
+    @login_command = login_command
+    super()
+  end
 
   def new
   end
@@ -19,11 +23,5 @@ class SessionsController < ApplicationController
   def destroy
     reset_session
     redirect_to new_session_path
-  end
-
-  private
-
-  def load_dependencies(login_command = resolve(:login_command))
-    @login_command = login_command
   end
 end
