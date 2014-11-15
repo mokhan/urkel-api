@@ -37,8 +37,6 @@ gem 'bootstrap-sass'
 gem 'pg'
 gem 'ember-rails', github: 'emberjs/ember-rails'
 gem 'ember-source'
-gem 'dotenv'
-gem 'i18n-tasks'
 gem 'rack-ssl-enforcer'
 gem 'puma'
 gem 'email_validator'
@@ -60,8 +58,9 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'ffaker'
   gem 'foreman'
-end
-group :test do
+  gem 'quiet_assets'
+  gem 'dotenv-rails'
+  gem 'i18n-tasks'
   gem "codeclimate-test-reporter", require: nil
 end
 group :staging, :production do

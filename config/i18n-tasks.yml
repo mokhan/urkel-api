@@ -47,7 +47,9 @@ search:
 
   ## Paths to search in, passed to File.find
   paths:
-    - app/
+    - app/controllers
+    - app/helpers
+    - app/views
 
   ## Root for resolving relative keys (default)
   # relative_roots:
@@ -70,7 +72,8 @@ search:
 # - '{devise,simple_form}.*'
 
 ## Consider these keys used
-# ignore_unused:
+ignore_unused:
+  - 'titles.*'
 # - 'activerecord.attributes.*'
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
