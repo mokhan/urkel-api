@@ -65,6 +65,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'i18n-tasks'
   gem "codeclimate-test-reporter", require: nil
+  gem 'capybara'
 end
 group :staging, :production do
   gem 'rails_12factor'
