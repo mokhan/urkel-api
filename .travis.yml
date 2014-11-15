@@ -10,6 +10,7 @@ before_script:
 branches:
   only:
   - master
+  - production
 cache:
 - bundler
 language:
