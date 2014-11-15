@@ -35,7 +35,7 @@ describe SessionsController do
       end
 
       it 'assigns a session key to a secure cookie' do
-        expect(cookies.signed[:raphael]).to eql(Session.last.id)
+        expect(cookies.signed[:raphael]).to eql(Session.last.key)
       end
     end
   end
@@ -44,7 +44,7 @@ describe SessionsController do
     let(:user_session) { create(:session) }
 
     before :each do
-      cookies.signed[:raphael] = user_session.id
+      cookies.signed[:raphael] = user_session.key
       delete :destroy, { id: 'mine' }
     end
 

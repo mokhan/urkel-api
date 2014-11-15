@@ -1,11 +1,12 @@
 class Session < ActiveRecord::Base
   belongs_to :user
+  before_create :create_key
 
   def access(request)
     self.ip_address = request.remote_ip
     if save
       {
-        value: self.id,
+        value: self.key,
         httponly: true,
         secure: Rails.env.production? || Rails.env.staging?,
         expires: 2.weeks.from_now
@@ -25,7 +26,13 @@ class Session < ActiveRecord::Base
     end
 
     def authenticate!(session_key)
-      active.find(session_key)
+      active.find_by!(key: session_key)
     end
+  end
+
+  private
+
+  def create_key
+    self.key = SecureRandom.uuid
   end
 end

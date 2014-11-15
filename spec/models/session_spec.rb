@@ -7,6 +7,7 @@ describe Session do
       session = Session.last
       expect(session.user_id).to eql(1)
       expect(session.ip_address).to eql("127.0.0.1")
+      expect(session.key).to_not be_nil
     end
   end
 
@@ -15,7 +16,7 @@ describe Session do
 
     context "when the session key is legit" do
       it 'returns the session' do
-        expect(Session.authenticate!(user_session.id)).to eql(user_session)
+        expect(Session.authenticate!(user_session.key)).to eql(user_session)
       end
     end
 
@@ -29,7 +30,7 @@ describe Session do
       let(:revoked_session) { create(:session, revoked_at: Time.now) }
 
       it 'raises an error' do
-        expect(-> { Session.authenticate(revoked_session.id) }).to raise_error
+        expect(-> { Session.authenticate(revoked_session.key) }).to raise_error
       end
     end
   end

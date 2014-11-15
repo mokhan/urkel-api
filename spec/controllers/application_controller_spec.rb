@@ -12,7 +12,7 @@ describe ApplicationController do
     let(:user) { create(:user, password: 'password', password_confirmation: 'password') }
     let(:user_session) { create(:session, user: user) }
 
-    before { cookies.signed[:raphael] = user_session.id }
+    before { cookies.signed[:raphael] = user_session.key }
     before { get :index }
 
     it "lets you continue to do whatever the heck you were trying to do" do
@@ -26,7 +26,7 @@ describe ApplicationController do
 
   context "when not signed in" do
     before :each do
-      cookies.signed[:raphael] = rand(100)
+      cookies.signed[:raphael] = SecureRandom.uuid
       get :index
     end
 
