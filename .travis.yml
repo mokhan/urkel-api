@@ -6,9 +6,7 @@ before_install:
 before_script:
   - cp .env.example .env
   - cp config/database.yml.example config/database.yml
-
   - psql -c 'create database "urkel_test";' -U postgres
-
 branches:
   only:
     - master
@@ -23,3 +21,9 @@ rvm:
   - 2.1.4
 addons:
   postgresql: "9.3"
+deploy:
+  provider: heroku
+  run: "rake db:migrate"
+  app:
+    master: urkel-staging
+    production: urkel
