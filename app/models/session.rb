@@ -13,4 +13,10 @@ class Session < ActiveRecord::Base
       raise "heck"
     end
   end
+
+  class << self
+    def authenticate!(session_key)
+      Session.find(session_key)
+    end
+  end
 end

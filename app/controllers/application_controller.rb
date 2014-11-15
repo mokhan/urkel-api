@@ -12,12 +12,14 @@ class ApplicationController < ActionController::Base
     @current_user ||= @current_session.user
   end
 
+  def current_session(session_key = cookies.signed[:raphael])
+    @current_session ||= Session.authenticate!(session_key)
+  end
+
   private
 
-  def ensure_valid_session(user_session_id = cookies.signed[:raphael])
-    unless @current_session = Session.find(user_session_id)
-      redirect_to new_session_path
-    end
+  def ensure_valid_session
+    redirect_to new_session_path unless current_session
   rescue ActiveRecord::RecordNotFound
     redirect_to new_session_path
   end

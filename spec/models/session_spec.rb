@@ -9,4 +9,20 @@ describe Session do
       expect(session.ip_address).to eql("127.0.0.1")
     end
   end
+
+  context ".authenticate" do
+    let(:user_session) { create(:session) }
+
+    context "when the session key is legit" do
+      it 'returns the session' do
+        expect(Session.authenticate!(user_session.id)).to eql(user_session)
+      end
+    end
+
+    context "when the session key is incorrect" do
+      it 'raises an error' do
+        expect(-> { Session.authenticate!('blah') }).to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
+  end
 end
