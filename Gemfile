@@ -58,3 +58,6 @@ group :development, :test do
   gem 'puma'
   gem 'foreman'
 end
+group :staging, :production do
+  gem 'rails_12factor'
+end
