@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
   def create
     if @session = @login_command.run(self)
       session[:user_session_id] = @session.id
+      cookies.signed[:raphael] = @session.access(request)
       redirect_to root_path(anchor: '')
     else
       flash[:error] = I18n.translate(:invalid_credentials)

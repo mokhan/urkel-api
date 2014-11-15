@@ -48,6 +48,10 @@ describe SessionsController do
         expect(session[:user_session_id]).to eql(last_session.id)
         expect(last_session.ip_address).to eql("0.0.0.0")
       end
+
+      it 'assigns a session key to a secure cookie' do
+        expect(cookies.signed[:raphael]).to eql(Session.last.id)
+      end
     end
   end
 
