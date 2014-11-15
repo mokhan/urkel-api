@@ -6,10 +6,6 @@ class User < ActiveRecord::Base
   has_secure_password
 
   def login(password)
-    if authenticate(password)
-      sessions.build
-    else
-      raise 'heck'
-    end
+    sessions.build if authenticate(password)
   end
 end
