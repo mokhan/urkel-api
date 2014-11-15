@@ -40,6 +40,7 @@ gem 'ember-source'
 gem 'dotenv'
 gem 'i18n-tasks'
 gem 'rack-ssl-enforcer'
+gem 'puma'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -55,7 +56,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'ffaker'
-  gem 'puma'
   gem 'foreman'
 end
 group :staging, :production do
