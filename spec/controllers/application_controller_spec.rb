@@ -9,8 +9,8 @@ describe ApplicationController do
   end
 
   context "when signed in" do
-    let(:user) { User.create!(password: 'password', password_confirmation: 'password') }
-    let(:user_session) { Session.create!(user: user) }
+    let(:user) { create(:user, password: 'password', password_confirmation: 'password') }
+    let(:user_session) { create(:session, user: user) }
 
     before { get :index, {}, user_session_id: user_session.id }
 
