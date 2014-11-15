@@ -5,6 +5,7 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 before_script:
   - cp .env.example .env
+  - cp config/database.yml.example config/database.yml
 
   - psql -c 'create database "urkel_test";' -U postgres
 
