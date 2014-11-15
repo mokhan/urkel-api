@@ -28,3 +28,5 @@ deploy:
   app:
     master: urkel-staging
     production: urkel
+  api_key:
+    secure: IpL7O10aAmSx1TkSt97jl5VISi+RxhkGLOOHZasm9BpN5oEwqi30vUW0pNQ4/30Q2TT+6ycpVIsVtXbyUT2YVlcmRjIUDd86uI62oR4AvnJctiVc4m4WBggkppG133iG2IYrrCXQBDfvJyGS3qIz8hKfiEHvgxWVl0JnGmtFgt8=
