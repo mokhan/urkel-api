@@ -48,12 +48,15 @@ gem 'title'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
+group :development do
+  gem 'spring'
+  gem 'spring-commands-rspec'
+end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'pry'
+  gem 'pry-rails'
   gem 'byebug'
-  gem 'spring'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'ffaker'
