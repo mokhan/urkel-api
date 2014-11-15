@@ -1,12 +1,9 @@
 require 'rails_helper'
 
 describe VideosController do
-  let(:user_session) { create(:session) }
-  let(:user) { user_session.user }
+  let(:user) { create(:user) }
 
-  before :each do
-    session[:user_session_id] = user_session.id
-  end
+  before { http_login(user) }
 
   describe "#index" do
     render_views

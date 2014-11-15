@@ -44,8 +44,9 @@ describe SessionsController do
     let(:user_session) { create(:session) }
 
     it "removes the current session" do
-      delete :destroy, { id: 'mine' }, { user_session_id: user_session.id }
-      expect(session[:user_session_id]).to be_nil
+      cookies.signed[:raphael] = user_session.id
+      delete :destroy, { id: 'mine' }
+      expect(request.cookies[:raphael]).to be_nil
       expect(response).to redirect_to(new_session_path)
     end
   end
