@@ -7,26 +7,19 @@
 set -e
 
 # Set up Ruby dependencies via Bundler
-bundle install
+bundle install --path vendor/bundle -j 4
 
 # Set up configurable environment variables
 if [ ! -f .env ]; then
   cp .env.example .env
 fi
 
+if [ ! -f config/database.yml ]; then
+  cp config/database.yml.example config/database.yml
+fi
+
 # Print warning if Foreman is not installed
 if ! command -v foreman &>/dev/null; then
   echo "foreman is not installed."
   echo "See https://github.com/ddollar/foreman for install instructions."
-fi
-
-# Set up staging and production apps.
-if heroku join --app urkel-staging &> /dev/null; then
-  git remote add staging git@heroku.com:urkel-staging.git || true
-  echo 'You are a collaborator on the "urkel-staging" Heroku app'
-fi
-
-if heroku join --app urkel-production &> /dev/null; then
-  git remote add production git@heroku.com:urkel-production.git || true
-  echo 'You are a collaborator on the "urkel-production" Heroku app'
 fi
