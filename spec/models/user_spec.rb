@@ -23,6 +23,12 @@ describe User do
   context "validations" do
     subject { build(:user) }
 
+    context "when all fields are provided" do
+      it 'is valid' do
+        expect(subject).to be_valid
+      end
+    end
+
     context "when the email is blank" do
       it 'produces an error' do
         subject.email = ''
@@ -43,6 +49,13 @@ describe User do
       it 'is valid' do
         expect(subject).to be_valid
         expect(subject.errors[:email]).to be_empty
+      end
+    end
+
+    context "when the password is missing" do
+      it 'produces an error' do
+        subject.password = nil
+        expect(subject).to_not be_valid
       end
     end
   end
