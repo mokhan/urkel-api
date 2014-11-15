@@ -59,4 +59,22 @@ describe User do
       end
     end
   end
+
+  context "#login" do
+    subject { create(:user, password: 'password') }
+
+    context "when the credentials are good" do
+      it 'returns a new session' do
+        result = subject.login('password')
+        expect(result).to_not be_nil
+        expect(result).to be_instance_of(Session)
+      end
+    end
+
+    context "when the credentials are invalid" do
+      it 'returns nil' do
+        expect(subject.login('wrong')).to be_nil
+      end
+    end
+  end
 end
