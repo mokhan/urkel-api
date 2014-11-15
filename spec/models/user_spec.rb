@@ -19,4 +19,31 @@ describe User do
       expect(user.authenticate('wrong')).to be_falsey
     end
   end
+
+  context "validations" do
+    subject { build(:user) }
+
+    context "when the email is blank" do
+      it 'produces an error' do
+        subject.email = ''
+        expect(subject).to_not be_valid
+        expect(subject.errors[:email]).to_not be_empty
+      end
+    end
+
+    context "when the email is invalid" do
+      it 'produces an error when' do
+        subject.email = 'blah'
+        expect(subject).to_not be_valid
+        expect(subject.errors[:email]).to_not be_empty
+      end
+    end
+
+    context 'when the email is legit' do
+      it 'is valid' do
+        expect(subject).to be_valid
+        expect(subject.errors[:email]).to be_empty
+      end
+    end
+  end
 end

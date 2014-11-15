@@ -76,6 +76,8 @@ GEM
       json
       thread
       thread_safe
+    email_validator (1.4.0)
+      activemodel
     ember-data-source (1.0.0.beta.11)
       ember-source
     ember-source (1.8.1)
@@ -215,6 +217,7 @@ DEPENDENCIES
   dalli
   database_cleaner
   dotenv
+  email_validator
   ember-rails!
   ember-source
   factory_girl_rails

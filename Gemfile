@@ -41,6 +41,7 @@ gem 'dotenv'
 gem 'i18n-tasks'
 gem 'rack-ssl-enforcer'
 gem 'puma'
+gem 'email_validator'
 
 # Use unicorn as the app server
 # gem 'unicorn'
