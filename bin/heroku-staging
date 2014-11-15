@@ -1,0 +1,12 @@
+#!/bin/bash
+
+heroku config --app urkel-staging
+heroku config:set ASSET_HOST=//urkel-staging.herokuapp.com  \
+  APPLICATION_DOMAIN=urkel-staging.herokuapp.com --app urkel-staging \
+  SMTP_HOST='' \
+  SMTP_PORT='' \
+  SMTP_DOMAIN='' \
+  SMTP_USERNAME='' \
+  SMTP_PASSWORD='' \
+  EMAIL_RECIPIENTS='' \
+  --app urkel-staging
