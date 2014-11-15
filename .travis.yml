@@ -24,6 +24,7 @@ addons:
 deploy:
   provider: heroku
   run: "rake db:migrate"
+  strategy: git
   app:
     master: urkel-staging
     production: urkel
