@@ -1,6 +1,6 @@
 == Urkel
 
-![build status](https://travis-ci.org/mokhan/urkel-api.svg)
+[![Build Status](https://travis-ci.org/mokhan/urkel-api.svg?branch=master)](https://travis-ci.org/mokhan/urkel-api)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
