@@ -43,6 +43,7 @@ gem 'rack-ssl-enforcer'
 gem 'puma'
 gem 'email_validator'
 gem "rack-timeout"
+gem 'title'
 
 # Use unicorn as the app server
 # gem 'unicorn'

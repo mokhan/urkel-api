@@ -20,4 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  titles:
+    application: Urkel
+    sessions:
+      new: 'Log In'
+    dashboard:
+      index: 'Dashboard'
   invalid_credentials: "Ooops... that's not right!"
