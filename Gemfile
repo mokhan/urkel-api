@@ -59,6 +59,9 @@ group :development, :test do
   gem 'ffaker'
   gem 'foreman'
 end
+group :test do
+  gem "codeclimate-test-reporter", require: nil
+end
 group :staging, :production do
   gem 'rails_12factor'
   gem 'dalli'

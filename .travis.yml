@@ -1,29 +1,32 @@
 before_install:
-  - "echo '--colour' > ~/.rspec"
-  - "echo 'gem: --no-document' > ~/.gemrc"
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+- echo '--colour' > ~/.rspec
+- 'echo ''gem: --no-document'' > ~/.gemrc'
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
 before_script:
-  - cp .env.example .env
-  - cp config/database.yml.example config/database.yml
-  - psql -c 'create database "urkel_test";' -U postgres
+- cp .env.example .env
+- cp config/database.yml.example config/database.yml
+- psql -c 'create database "urkel_test";' -U postgres
 branches:
   only:
-    - master
+  - master
 cache:
-  - bundler
+- bundler
 language:
-  - ruby
+- ruby
 notifications:
   email:
-    - false
+  - false
 rvm:
-  - 2.1.4
+- 2.1.4
 addons:
-  postgresql: "9.3"
+  postgresql: '9.3'
+  code_climate:
+    repo_token:
+      secure: EMfNQ6020A8tTn5Xg3GvE5u2bmCYw1HiR0CAehj2wIBy46xMhANwu+p9qduP3u0RvDeON5RiQ0ZuFJXKJbuoxssBhgkBHE9bj+9le5KB5eVMxhuCEphREVpXbYW5DcUKrUPBVa1w35fA8LOZOE2J92zPJqtAXju0pbx6VwKjc+M=
 deploy:
   provider: heroku
-  run: "rake db:migrate"
+  run: rake db:migrate
   strategy: git
   app:
     master: urkel-staging
