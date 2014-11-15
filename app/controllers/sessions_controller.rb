@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_filter :ensure_valid_session, only: [:new, :create]
+  skip_before_action :ensure_valid_session, only: [:new, :create]
   layout 'public'
 
   def initialize(login_command = resolve(:login_command))
