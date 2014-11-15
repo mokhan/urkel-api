@@ -1,12 +1,18 @@
 #!/bin/bash
 
-heroku config --app urkel-staging
+STAGE=urkel-staging
+
+heroku config --app $STAGE
+# TODO: find way to load from .env.staging file without checking into source control.
 heroku config:set ASSET_HOST=//urkel-staging.herokuapp.com  \
-  APPLICATION_DOMAIN=urkel-staging.herokuapp.com --app urkel-staging \
+  APPLICATION_DOMAIN=urkel-staging.herokuapp.com --app $STAGE \
   SMTP_HOST='' \
   SMTP_PORT='' \
   SMTP_DOMAIN='' \
   SMTP_USERNAME='' \
   SMTP_PASSWORD='' \
   EMAIL_RECIPIENTS='' \
-  --app urkel-staging
+  --app $STAGE
+
+git push staging master
+heroku run rake db:migrate --app $STAGE
