@@ -19,8 +19,12 @@ class Session < ActiveRecord::Base
   end
 
   class << self
+    def active
+      where(revoked_at: nil)
+    end
+
     def authenticate!(session_key)
-      Session.find(session_key)
+      active.find(session_key)
     end
   end
 end

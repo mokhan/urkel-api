@@ -24,6 +24,14 @@ describe Session do
         expect(-> { Session.authenticate!('blah') }).to raise_error(ActiveRecord::RecordNotFound)
       end
     end
+
+    context "when the session key is revoked" do
+      let(:revoked_session) { create(:session, revoked_at: Time.now) }
+
+      it 'raises an error' do
+        expect(-> { Session.authenticate(revoked_session.id) }).to raise_error
+      end
+    end
   end
 
   context "#revoke!" do
