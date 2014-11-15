@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 20141115170606) do
     t.datetime "revoked_at"
   end
 
+  add_index "sessions", ["revoked_at"], name: "index_sessions_on_revoked_at", using: :btree
+
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "password_digest"
