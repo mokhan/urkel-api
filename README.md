@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/mokhan/urkel-api.svg?branch=master)](https://travis-ci.org/mokhan/urkel-api)
 [![Code Climate](https://codeclimate.com/github/mokhan/urkel-api/badges/gpa.svg)](https://codeclimate.com/github/mokhan/urkel-api)
+[![Test Coverage](https://codeclimate.com/github/mokhan/urkel-api/badges/coverage.svg)](https://codeclimate.com/github/mokhan/urkel-api)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
