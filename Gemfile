@@ -51,6 +51,8 @@ gem 'title'
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'foreman'
+  gem 'i18n-tasks'
 end
 
 group :development, :test do
@@ -58,14 +60,15 @@ group :development, :test do
   gem 'pry-rails'
   gem 'byebug'
   gem 'factory_girl_rails'
-  gem 'database_cleaner'
   gem 'ffaker'
-  gem 'foreman'
   gem 'quiet_assets'
   gem 'dotenv-rails'
-  gem 'i18n-tasks'
-  gem "codeclimate-test-reporter", require: nil
+end
+group :test do
   gem 'capybara'
+  gem 'poltergeist'
+  gem 'database_cleaner'
+  gem "codeclimate-test-reporter", require: nil
 end
 group :staging, :production do
   gem 'rails_12factor'
