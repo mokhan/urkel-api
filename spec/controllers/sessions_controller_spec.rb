@@ -15,7 +15,7 @@ describe SessionsController do
       it "displays an error" do
         post :create, email: 'email@example.com', password: 'wrong'
         expect(flash[:error]).to eql(I18n.translate(:invalid_credentials))
-        expect(response).to render_template(:new)
+        expect(response).to redirect_to(new_session_path)
       end
     end
 
@@ -23,7 +23,7 @@ describe SessionsController do
       it "displays an error" do
         post :create, email: 'unknown@example.com'
         expect(flash[:error]).to eql(I18n.translate(:invalid_credentials))
-        expect(response).to render_template(:new)
+        expect(response).to redirect_to(new_session_path)
       end
     end
 

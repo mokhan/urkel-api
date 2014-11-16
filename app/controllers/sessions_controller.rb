@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       redirect_to root_path(anchor: '')
     else
       flash[:error] = I18n.translate(:invalid_credentials)
-      render :new
+      redirect_to new_session_path
     end
   end
 
