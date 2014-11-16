@@ -1,3 +1,5 @@
+require_relative 'page_model'
+
 class LoginPage < PageModel
   def initialize
     super(new_session_path)
