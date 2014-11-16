@@ -1,9 +1,9 @@
-class LoginPage
-  include Capybara::DSL
-  include Rails.application.routes.url_helpers
+class LoginPage < PageModel
+  def initialize
+    super(new_session_path)
+  end
 
   def login_with(email:, password:)
-    visit root_path
     within ".form-signin" do
       fill_in 'email', with: email
       fill_in 'password', with: password
@@ -11,4 +11,3 @@ class LoginPage
     click_button "Sign in"
   end
 end
-
